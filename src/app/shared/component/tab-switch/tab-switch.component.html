@@ -1,0 +1,46 @@
+<ul class="nav nav-pills mb-4">
+  <li class="nav-item">
+    <a
+    [ngClass]="{
+      'active':selectedframework.toLowerCase().includes('angular')
+     }"
+     (click)="selectedframework = 'angular'"
+    href="javascript:;" class="nav-link">
+     Angular
+    </a>
+  </li>
+  <li class="nav-item">
+    <a
+    [ngClass]="{
+      'active':selectedframework.toLowerCase().includes('react')
+     }"
+     (click)="selectedframework = 'react'"
+    href="javascript:;" class="nav-link">
+     React
+    </a>
+  </li>
+  <li class="nav-item">
+    <a
+    [ngClass]="{
+      'active':selectedframework.toLowerCase().includes('vue')
+     }"
+     (click)="selectedframework = 'vue'"
+    href="javascript:;" class="nav-link">
+     Vue
+    </a>
+  </li>
+</ul>
+
+
+
+<div [ngSwitch]="selectedframework">
+  <p class="alert alert-warning" *ngSwitchCase="'angular'">
+    <strong>Angular</strong> is an open-source, JavaScript framework written in TypeScript. Google maintains it, and its primary purpose is to develop single-page applications. As a framework, Angular has clear advantages while also providing a standard structure for developers to work with.
+  </p>
+  <p class="alert alert-warning" *ngSwitchCase="'react'">
+    <strong>React</strong> can be used to build web, mobile, and desktop applications, making it a versatile framework for cross-platform development. React Native, a framework based on React is specifically designed for mobile app development, while React Desktop allows you to create desktop applications using web technologies.
+  </p>
+  <p class="alert alert-warning" *ngSwitchCase="'vue'">
+    <strong>Vue</strong> is a JavaScript framework for building user interfaces. It builds on top of standard HTML, CSS, and JavaScript and provides a declarative, component-based programming model that helps you efficiently develop user interfaces of any complexity.
+  </p>
+</div>

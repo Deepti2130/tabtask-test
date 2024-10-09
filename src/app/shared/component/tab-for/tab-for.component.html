@@ -1,0 +1,28 @@
+<ul class="nav nav-pills mb-4">
+  <li class="nav-item" *ngFor="let tab of tabArr">
+    <a
+    [ngClass]="{
+      'active':selectedframework.toLowerCase().includes(tab.framework)
+    }"
+
+    (click)="ontabclick(tab.framework)"
+    href="javascript:;" class="nav-link">
+    <!-- framework is need to apply the condition -->
+    {{tab.framework}} //
+    {{tab.tabtitle}}
+    </a>
+  </li>
+</ul>
+
+<!-- in ngfor method we itrate the data by using loop and then bind the property binding and directives.
+   -->
+<!-- two structural directives we can not bind on same element hence we need a ng-container -->
+ <!-- So we bind structural directive different element -->
+<div class="card">
+  <ng-container *ngFor="let tab of tabArr">
+  <div class="card-body"
+   *ngIf="selectedframework.toLowerCase().includes(tab.framework)"
+   [innerHTML] = "tab.tabcontent">
+  </div>
+</ng-container>
+</div>
